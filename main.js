@@ -93,8 +93,28 @@ function LinkedList() {
     return false;
   }
 
+  const find = function(val) {
+    let index = 0;
+    let tmp = list.head;
+    if (tmp===null) {
+      return null;
+    }
+    while (tmp.nextNode!==null) {
+      if (tmp.value===val) {
+        return index;
+      };
+      tmp = tmp.nextNode;
+      index += 1;
+    };
+    if (tmp.value===val) {
+      return index;
+    };
+    return null;
+  }
+
+
   return {
-    append, list, prepend, size, head, tail, at, pop, contains,
+    append, list, prepend, size, head, tail, at, pop, contains, find,
   }
 }
 
@@ -129,3 +149,4 @@ linkedList.pop();
 console.log(linkedList.size());
 linkedList.append("vu");
 console.log(linkedList.contains('what'));
+console.log(linkedList.find('fuck'));
