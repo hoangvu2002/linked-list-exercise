@@ -17,8 +17,14 @@ function LinkedList() {
     };
   }
 
+  const prepend = function(value) {
+    const node = Node(value);
+    node.nextNode = list.head;
+    list.head = node;
+  }
+
   return {
-    append, list,
+    append, list, prepend,
   }
 }
 
@@ -39,4 +45,8 @@ console.log(linkedList.list);
 linkedList.append('mfs');
 console.log(linkedList.list);
 linkedList.append('???');
+console.log(linkedList.list);
+linkedList.prepend('the');
+console.log(linkedList.list);
+linkedList.prepend('what');
 console.log(linkedList.list);
