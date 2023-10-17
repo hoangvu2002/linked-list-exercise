@@ -30,11 +30,17 @@ function LinkedList() {
       count++;
       tmp = tmp.nextNode;
     }
-    console.log(count);
+    return count;
+  }
+
+  const head = function() {
+    const firstNode = list.head;
+    firstNode.nextNode = null;
+    return firstNode;
   }
 
   return {
-    append, list, prepend, size,
+    append, list, prepend, size, head,
   }
 }
 
@@ -61,4 +67,5 @@ linkedList.prepend('the');
 console.log(linkedList.list);
 linkedList.prepend('what');
 console.log(linkedList.list);
-linkedList.size();
+console.log(linkedList.size());
+console.log(linkedList.head());
