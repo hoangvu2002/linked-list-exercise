@@ -27,7 +27,7 @@ function LinkedList() {
     let count = 0;
     let tmp = list.head;
     while (tmp!==null) {
-      count++;
+      count += 1;
       tmp = tmp.nextNode;
     }
     return count;
@@ -46,18 +46,27 @@ function LinkedList() {
       return;
     }
     let tmp = list.head;
-    console.log('debug');
-    console.log(tmp);
-    console.log(tmp.nextNode!==null);
     while (tmp.nextNode !== null) {
       tmp = tmp.nextNode;
     };
-    lastNode = tmp;
+    const lastNode = Object.assign({}, tmp);
     return lastNode;
   }
 
+  const at = function(index) {
+    let counter = 0;
+    let tmp = list.head;
+    while (counter<index) {
+      tmp = tmp.nextNode;
+      counter += 1;
+    };
+    const copyAtNode = Object.assign({}, tmp);
+    copyAtNode.nextNode = null;
+    return copyAtNode;
+  }
+
   return {
-    append, list, prepend, size, head, tail,
+    append, list, prepend, size, head, tail, at,
   }
 }
 
@@ -87,3 +96,4 @@ console.log(linkedList.list);
 console.log(linkedList.size());
 console.log(linkedList.head());
 console.log(linkedList.tail());
+console.log(linkedList.at(3));
