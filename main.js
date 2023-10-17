@@ -40,26 +40,24 @@ function LinkedList() {
     return copyFirstNode;
   }
 
-  //const tail = function() {
-  //  if (list.head === null) {
-  //    // eslint-disable-next-line no-useless-return
-  //    return;
-  //  }
-  //  let tmp = list.head;
-  //  console.log('debug');
-  //  console.log(tmp);
-  //  console.log(tmp.nextNode!==null);
-  //  while (tmp.nextNode !== null) {
-  //    console.log('hey');
-  //    tmp = tmp.nextNode;
-  //    console.log(tmp.value);
-  //  };
-  //  lastNode = tmp;
-  //  return lastNode;
-  //}
+  const tail = function() {
+    if (list.head === null) {
+      // eslint-disable-next-line no-useless-return
+      return;
+    }
+    let tmp = list.head;
+    console.log('debug');
+    console.log(tmp);
+    console.log(tmp.nextNode!==null);
+    while (tmp.nextNode !== null) {
+      tmp = tmp.nextNode;
+    };
+    lastNode = tmp;
+    return lastNode;
+  }
 
   return {
-    append, list, prepend, size, head,
+    append, list, prepend, size, head, tail,
   }
 }
 
@@ -88,4 +86,4 @@ linkedList.prepend('what');
 console.log(linkedList.list);
 console.log(linkedList.size());
 console.log(linkedList.head());
-//console.log(linkedList.tail());
+console.log(linkedList.tail());
