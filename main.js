@@ -23,8 +23,18 @@ function LinkedList() {
     list.head = node;
   }
 
+  const size = function() {
+    let count = 0;
+    let tmp = list.head;
+    while (tmp!==null) {
+      count++;
+      tmp = tmp.nextNode;
+    }
+    console.log(count);
+  }
+
   return {
-    append, list, prepend,
+    append, list, prepend, size,
   }
 }
 
@@ -35,6 +45,7 @@ function Node(value=null) {
     value,
     nextNode: null,
   };
+
 }
 
 const linkedList = LinkedList();
@@ -50,3 +61,4 @@ linkedList.prepend('the');
 console.log(linkedList.list);
 linkedList.prepend('what');
 console.log(linkedList.list);
+linkedList.size();
