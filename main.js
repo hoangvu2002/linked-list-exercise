@@ -76,8 +76,25 @@ function LinkedList() {
     tmp.nextNode = null;
   }
 
+  const contains = function(val) {
+    if (list.head === null) {
+      return false;
+    }
+    let tmp = list.head;
+    while (tmp.nextNode !== null) {
+      if (tmp.value === val) {
+        return true;
+      };
+      tmp = tmp.nextNode;
+    };
+    if (tmp.value === val) {
+      return true;
+    }
+    return false;
+  }
+
   return {
-    append, list, prepend, size, head, tail, at, pop,
+    append, list, prepend, size, head, tail, at, pop, contains,
   }
 }
 
@@ -111,3 +128,4 @@ console.log(linkedList.at(3));
 linkedList.pop();
 console.log(linkedList.size());
 linkedList.append("vu");
+console.log(linkedList.contains('what'));
