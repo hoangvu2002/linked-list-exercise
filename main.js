@@ -65,8 +65,19 @@ function LinkedList() {
     return copyAtNode;
   }
 
+  const pop = function() {
+    lastIndex = this.size() - 1;
+    let counter = 0;
+    let tmp = list.head;
+    while (counter<lastIndex - 1) {
+      tmp = tmp.nextNode;
+      counter += 1;
+    };
+    tmp.nextNode = null;
+  }
+
   return {
-    append, list, prepend, size, head, tail, at,
+    append, list, prepend, size, head, tail, at, pop,
   }
 }
 
@@ -97,3 +108,6 @@ console.log(linkedList.size());
 console.log(linkedList.head());
 console.log(linkedList.tail());
 console.log(linkedList.at(3));
+linkedList.pop();
+console.log(linkedList.size());
+linkedList.append("vu");
