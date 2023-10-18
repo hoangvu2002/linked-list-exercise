@@ -127,8 +127,30 @@ function LinkedList() {
     return str;
   }
 
+  const insertAt = function(val, index) {
+    if (list.head===null) {
+      list.head = Node(val);
+    }
+
+    if (index >= this.size()) {
+      this.append(val);
+      return;
+    }
+    let tmp = list.head;
+    let prev = null;
+    let counter = 0;
+    while (counter<index) {
+      prev = tmp;
+      tmp = tmp.nextNode;
+      counter += 1;
+    };
+    const node = Node(val);
+    prev.nextNode = node;
+    node.nextNode = tmp;
+    }
+
   return {
-    append, list, prepend, size, head, tail, at, pop, contains, find, toString,
+    append, list, prepend, size, head, tail, at, pop, contains, find, toString, insertAt
   }
 }
 
@@ -164,4 +186,10 @@ console.log(linkedList.size());
 linkedList.append("vu");
 console.log(linkedList.contains('what'));
 console.log(linkedList.find('fuck'));
+console.log(linkedList.toString());
+console.log(linkedList.list);
+linkedList.insertAt("test", 2);
+console.log(linkedList.toString());
+console.log(linkedList.size());
+linkedList.insertAt("hoang", 8);
 console.log(linkedList.toString());
