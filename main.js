@@ -149,8 +149,23 @@ function LinkedList() {
     node.nextNode = tmp;
     }
 
+  const removeAt = function(index) {
+    if (list.head === null) {
+      throw new Error("Empty list");
+    }
+    let tmp = list.head;
+    let prev = null;
+    let counter = 0;
+    while (counter<index) {
+      prev = tmp;
+      tmp = tmp.nextNode;
+      counter += 1;
+    };
+    prev.nextNode = tmp.nextNode;
+  }
+  
   return {
-    append, list, prepend, size, head, tail, at, pop, contains, find, toString, insertAt
+    append, list, prepend, size, head, tail, at, pop, contains, find, toString, insertAt, removeAt,
   }
 }
 
@@ -193,3 +208,6 @@ console.log(linkedList.toString());
 console.log(linkedList.size());
 linkedList.insertAt("hoang", 8);
 console.log(linkedList.toString());
+linkedList.removeAt(1);
+console.log(linkedList.toString());
+console.log(linkedList.size());
