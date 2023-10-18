@@ -112,9 +112,23 @@ function LinkedList() {
     return null;
   }
 
+  const toString = function() {
+    let str = ``;
+    let tmp = list.head;
+    if (tmp===null) {
+      return 'null';
+    }
+    while (tmp.nextNode !== null) {
+      str += `( ${tmp.value} ) -> `;
+      tmp = tmp.nextNode;
+    }
+
+    str += `( ${tmp.value} ) -> null`;
+    return str;
+  }
 
   return {
-    append, list, prepend, size, head, tail, at, pop, contains, find,
+    append, list, prepend, size, head, tail, at, pop, contains, find, toString,
   }
 }
 
@@ -150,3 +164,4 @@ console.log(linkedList.size());
 linkedList.append("vu");
 console.log(linkedList.contains('what'));
 console.log(linkedList.find('fuck'));
+console.log(linkedList.toString());
